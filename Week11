@@ -1,0 +1,78 @@
+# the simplest class possible
+class Cat:
+   pass
+
+#in older versions of python you may see this
+class Cat(object):
+   pass
+#This is an older style that achieves the same thing
+
+class Cat:
+    def meow(self):
+        print("meowwwwwww")
+
+# create a new instance of a cat from the blueprint
+
+
+lenny = Cat()
+
+# These are identical, which is clearer?
+Cat.meow(lenny)
+lenny.meow()
+##########################
+
+kenny = Cat()
+lenny.meow()
+kenny.meow()
+# lenny and kenny are identical!
+
+# how to we introduce attributes to these cats?
+# Lenny is name = Lenny, breed = tabby
+# Kenny is nmame = Kenny, breed = tuxedo*
+# *tuxedo is not a breed it's a colour!
+# **Stop Press ** Tabby is also a colour scheme!!
+
+# silly way
+lenny.name = "Lenny"
+lenny.breed = "Tabby"
+kenny.name = "kenny"
+kenny.pattern = "Tuxedo"
+
+print(lenny.breed)
+
+class Animal:
+    def __init__(self, name, diet="Vegan"):
+        self.name = name
+        self.diet = diet
+        self.is_hungry = False
+
+
+    def eat(self, food):
+        if self.is_hungry:
+            print(f"Yummy Yum {food}")
+        else:
+            print(f"No thank you!")
+
+    def make_hungry(self):
+        self.is_hungry = True
+
+
+
+
+class Cat(Animal):
+    def __init__(self,
+                 name,
+                 breed):
+        super().__init__(name)
+        self.breed = breed
+        self.cute = True
+
+    def meow(self):
+        print(f"{self.name} meowwwwwwwwww")
+
+
+
+lenny = Cat("Lenny-roo", "Tabby")
+lenny.eat('Tuna')
+lenny.is_hungry = True
+#print(lenny.name)
